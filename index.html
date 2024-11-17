@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head> 
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EcoVibe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+
+    <link rel="stylesheet" href="./styles/theme.css">
+    <link rel="stylesheet" href="./styles/index.css">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <style>
+      .navbar-brand {
+        animation: animationNavbarBrand 1s ease both;
+        will-change: transform;
+      }
+
+      @keyframes animationNavbarBrand {
+        0% {
+          transform: scale(.5);
+        }
+        33% {
+          transform: scale(1.3);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+ 
+    <header class="w-100 d-flex justify-content-center position-sticky top-0" style="background: var(--gradient); z-index: 1000;">
+      <nav class="container-header navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <a class="navbar-brand fs-2 fw-bold text-green" href="/">EcoVibe</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-between" id="navbarNavDropdown">
+            <ul class="navbar-nav gap-0 gap-lg-4">
+              <li class="nav-item d-flex align-items-center gap-2">
+                <div class="dropdown">
+                  <span class="dropdown-toggle nav-link" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Servicios
+                  </span>
+                  <ul class="dropdown-menu mt-2 shadow-lg dropdown-menu--header__services">
+                    <li id="calculatorService"><a class="dropdown-item" href="#" style="white-space: pre-wrap;">Calculadora de huella de carbono</a></li>
+                    <li id="activeService"><a class="dropdown-item" href="/pages/flujo/registro-de-actividades-diarias-transporte.html" style="white-space: pre-wrap;">Registro de actividades diarias</a></li>
+                    <li><a class="dropdown-item" href="/pages/tienda.html" style="white-space: pre-wrap;">Tienda</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">Rankings</a>
+              </li>
+              <li class="nav-item position-relative d-flex align-items-center form-control--header__search">
+                <div class="position-absolute">
+                  <i class="ms-2 fa-solid fa-magnifying-glass"></i>
+                </div>
+                <input class="form-control form-control-sm" style="padding-left: 32px;" type="search" placeholder="Buscar" aria-label="Search">
+              </li>
+            </ul>
+            <div class="d-flex align-items-center gap-2">
+              <button type="button" class="d-block btn btn-success" id="isLoggedIn">Iniciar sesión</button>
+              <div class="d-flex flex-column flex-lg-row align-items-center gap-4" id="isNotLoggedIn">
+                <a class="d-flex align-items-center gap-2 nav-link w-100" href="#">
+                  <i class="fas fa-bell"></i>
+                  <span class="fs-6 d-lg-none">Notificaciones</span>
+                </a>
+                <a class="d-flex align-items-center gap-2 nav-link w-100" href="/pages/tienda.html">
+                  <i class="fas fa-dollar-sign"></i>
+                  <span class="fs-6 d-lg-none">Tienda</span>
+                </a>
+                <div class="nav-item dropdown d-none d-lg-block">
+                  <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-user"></i>
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-end shadow-lg mt-3">
+                    <li><a class="dropdown-item" href="#">Perfil</a></li>
+                    <li><a class="dropdown-item" href="#" id="closeSesionDesktop">Cerrar sesión</a></li>
+                  </ul>
+                </div>
+                <div class="d-flex flex-column gap-3 d-lg-none w-100">
+                  <a class="nav-link" href="#">
+                    <i class="fas fa-user"></i>
+                    <span class="fs-6">Perfil</span>
+                  </a>
+                  <button type="button" class="btn btn-sm btn-danger mb-2" id="closeSesionMobile">Cerrar sesión</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <script src="./js/header.js"></script>
+    </header>
+
+    <main class="w-full">
+      <div class="w-full overflow-hidden" style="background: var(--gradient);">
+        <section class="container hero-banner">
+          <div class="hero-description">
+            <h1 class="fs-2 fw-bold text-secondary">Calcula tu huella de carbono, comprometete a reducirla</h1>
+            <a class="btn btn-lg btn-light fs-6" href="/pages/calculadora/personal/calculadora-home.html">Mide tu huella de carbono</a>
+          </div>
+          <img class="w-full planet" src="public/public-assets/imagenes/planeta.png" />
+        </section>
+      </div>
+      <section class="container banner_how">
+        <h2 class="fs-3 fw-bold">¿Cómo funciona EcoVibe?</h2>
+        <p class="fs-6">Al registrarte en nuestra página, comenzarás a ganar experiencia (xp) por cada actividad diaria que registres. Si mantienes una racha constante de registros, recibirás experiencia adicional y más puntos.  ranking mensual, se evalúa la experiencia acumulada de cada jugador.</p>
+        <p class="fs-6">Los puntos que ganes pueden ser canjeados en nuestra tienda.</p>
+        <div class="d-flex flex-row-reverse">
+          <a class="btn btn-lg btn-success text-white d-inline-flex align-items-center gap-2" href="/pages/tienda.html">
+            Ir a la tienda
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </section>
+      
+      <section class="container banner_ranking">
+        <h2 class="fs-1 fw-bold">Ranking Mensual de sostenibilidad</h2>
+        <div class="banner_ranking_content">
+          <div class="podium">
+            <div class="podium_content">
+              <div class="circle overflow-hidden">
+                <img class="w-100 object-fit-cover" src="public/assets/img/jeyson.jpg" alt="jeyson">
+              </div>
+              <div class="podium-item podium-item-3">
+                <div class="fs-6">#3</div>
+                <div class="fs-6">Jeyson Orellano</div>
+              </div>
+            </div>
+            <div class="podium_content">
+              <div class="circle overflow-hidden">
+                <img class="w-100 object-fit-cover" src="public/assets/img/juan.jpeg" alt="juan">
+              </div>
+              <div class="podium-item podium-item-1">
+                <div class="fs-6">#1</div>
+                <div class="fs-6">Juan Perez</div>
+              </div>
+            </div>
+            <div class="podium_content">
+              <div class="circle overflow-hidden">
+                <img class="w-100 object-fit-cover" src="public/assets/img/fernando.jpeg" alt="Fernando">
+              </div>
+              <div class="podium-item podium-item-2">
+                <div class="fs-6">#2</div>
+                <div class="fs-6">Fernando Ortiz</div>
+              </div>
+            </div>
+          </div>
+      
+          <div class="info-panel">
+            <p class="fs-6 fw-bold">Inicia sesión y registra tus actividades diarias para ganar experiencia (xp) y competir con tus amigos por los primeros lugares!</p>
+            <a class="btn btn-lg btn-success d-flex align-items-center gap-2" href="/pages/flujo/registro-de-actividades-diarias-transporte.html">
+              Registro de actividades
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+      
+      
+      <section class="container banner_trend">
+        <h2 class="font-title-lg">Tendencias de sostenibilidad</h2>
+  
+        <div class="banner_trend_contend">
+          <div class="trend-card">
+            <iframe src="https://www.youtube.com/embed/5yCsjASSd1M" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+            <figcaption>¿Qué es la sostenibilidad?</figcaption>
+          </div>
+          <div class="trend-card">
+            <iframe src="https://www.youtube.com/embed/I4wj61hScUQ" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+            <figcaption>BIC: 2 minutos para entender el desarrollo sostenible</figcaption>
+          </div>
+          <div class="trend-card">
+            <iframe src="https://www.youtube.com/embed/anotherVideoID" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+            <figcaption>Otro video sobre sostenibilidad</figcaption>
+          </div>
+          <div class="trend-card">
+            <iframe src="https://www.youtube.com/embed/anotherVideoID2" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+            <figcaption>Video adicional sobre sostenibilidad</figcaption>
+          </div>
+        </div>
+      </section>
+
+      <section class="mission-vision-section">
+        <div class="card">
+          <h2 class="font-title-lg">Misión</h2>
+          <p class="font-text-sm-bold">EcoVibe es una aplicación que permite a sus usuarios medir, monitorear y reducir su huella de carbono, con el objetivo de educar y fomentar un comportamiento ecológico responsable. Busca generar un cambio positivo en la sociedad, creando una comunidad global comprometida con la mitigación del cambio climático y estableciendo alianzas con organizaciones y gobiernos para sensibilizar su impacto y promover políticas sostenibles.</p>
+        </div>
+        <div class="card">
+          <h2 class="font-title-lg">Visión</h2>
+          <p class="font-text-sm-bold">EcoVibe busca ser una plataforma digital más influyente y accesible para ayudar a las personas a sensibilizarse en su impacto en el ambiente y actuar en consecuencia de manera responsable. La visión incluye una meta a largo plazo de brindar soporte a nivel global, integrando servicios para empresas y gobiernos que puedan ayudar en la toma de decisiones y políticas.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="flex flex-col items-center bg-green">
+      <div class="footer-home">
+        <div class="logo">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg">
+            <path d="M245.003 21.882c-166.998.752-303.014 211.052-130.59 381.17 8.035 25.41 42.784 41.465 94.91 57.862 37.832 11.993 50.783-4.965 42.102-27.322-37.478-96.526-122.616-93.237-128.593-102.07C19.647 179.044 185.37 34.12 321.578 99.659c154.92 74.51 93.159 218.387 5.099 279.26-33.979 23.392-54.793 53.902-43.615 84.13 5.99 16.174 34.958 29.057 45.928 26.818 8.658-1.764-36.293-26.3-8.303-55.948 22.237-23.66 89.603-37.464 125.124-103.51 67.453-125.152 28.701-238.4-130.697-296.26-12.156-4.374-24.254-7.519-36.38-9.55a199.684 199.684 0 0 0-33.73-2.716zm11.434 80.2s-28.375 30.73-27.871 62.145c.03 6.434 1.304 12.957 3.231 19.139 10.2 12.01 18.472 25.93 25.648 41.036 7.086-18.501 16.129-34.364 27.367-47.29.711-3.9 1.096-7.74 1.096-11.625-.415-31.398-29.471-63.405-29.471-63.405zm114.657 53.941c-53.459 3.158-88.03 51.295-108.637 93.234-.89 1.912-7.449 2.436-8.6.46-15.21-27.53-24.758-48.212-43.555-63.807-17.79-14.795-40.236-23.601-70.45-23.764 1.305 11.993 7 44.86 30.808 63.08 8.125 6.24 19.924 9.474 31.904 12.245 11.92 2.684 24.163 4.803 33.503 10.348 7.531 4.477 12.334 11.475 14.618 19.614 2.283 8.108 2.224 17.314.475 27.07-2.937 16.945-10.912 35.58-21.557 52.747 0 0 31.488 13.12 37.093 62.636 10.436-25.351 32.407-39.849 32.407-39.849-11.563-16.442-27.99-58.99-31.903-75.712-2.165-9.62-2.847-18.769-1.068-26.997 1.75-8.212 6.079-15.505 13.343-20.383 9.014-6.035 21.022-8.822 32.852-12.2 11.86-3.397 23.394-7.37 31.34-14.1 14.054-12.008 21.05-29.25 24.46-43.718 1.661-7.25 2.521-13.715 2.847-18.31.12-1.127.09-1.72.12-2.594zM157.973 387.005c9.72.266 35.546 20.438 28.251 21.939-31.767 6.533-35.988-13.624-31.287-20.722.588-.887 1.647-1.254 3.036-1.217z"></path>
+          </svg>
+          <h2>EcoVibe</h2>
+        </div>
+        <div class="services">
+          <h3>Servicios</h3>
+          <ul>
+            <li>
+              <a href="/pages/calculadora/personal/calculadora-home.html">Calculadora de huella de carbono</a>
+            </li>
+            <li>
+              <a href="#">Ranking de usuarios</a>
+            </li>
+            <li>
+              <a href="/pages/tienda.html">Tienda</a>
+            </li>
+            <li>
+              <a href="#">Videos y artículos</a>
+            </li>
+            <li>
+              <a href="#">Juegos y quizzes</a>
+            </li>
+            <li>
+              <a href="#">Logros</a>
+            </li>
+          </ul>
+        </div>
+        <div class="about-ecovibe">
+          <h3>Sobre EcoVibe</h3>
+          <ul>
+            <li>
+              <a href="#">¿Por qué EcoVibe?</a>
+            </li>
+            <li>
+              <a href="#">¿Cómo funciona?</a>
+            </li>
+            <li>
+              <a href="#">Certificados</a>
+            </li>
+            <li>
+              <a href="#">Seguridad de datos</a>
+            </li>
+            <li>
+              <a href="#">FAQ</a>
+            </li>
+            <li>
+              <a href="#">Términos y condiciones</a>
+            </li>
+          </ul>
+        </div>  
+        <div class="social-media">
+          <h3>Nuestras redes sociales: </h3>
+          <ul class="social-media--container">
+            <li>
+              <a href="https://www.facebook.com/" target="_blank" rel="noopener">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><path d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"></path></svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://instagram.com/" target="_blank" rel="noopener">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://linkedin.com/" target="_blank" rel="noopener">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/" target="_blank" rel="noopener">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg>
+              </a>
+            </li>
+          </div>
+        </div>  
+      </div>  
+    </footer>
+
+    <script>
+      window.scrollTo(0, 0);
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js" integrity="sha512-6sSYJqDreZRZGkJ3b+YfdhB3MzmuP9R7X1QZ6g5aIXhRvR1Y/N/P47jmnkENm7YL3oqsmI6AK+V6AD99uWDnIw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  </body>
+</html>
