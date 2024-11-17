@@ -1,0 +1,119 @@
+.footer-home {
+  width: 100%;
+  max-width: 1440px;
+  color: var(--white);
+  padding: 16px;
+  overflow: hidden;
+  display: grid;
+  grid-template-areas:
+    "logo"
+    "services"
+    "about"
+    "social"
+  ;
+  gap: 16px;
+}
+
+.footer-home .logo {
+  grid-area: logo;
+  width: 100%;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.footer-home ul,
+.footer-home ol {
+  list-style-position: inside;
+}
+
+.footer-home a {
+  color: inherit;
+  text-decoration-color: transparent;
+}
+
+.footer-home a:hover {
+  text-decoration-color: inherit;
+}
+
+.footer-home h2 {
+  font-size: 64px;
+  font-weight: bold;
+}
+
+.footer-home .services {
+  width: min-content;
+  white-space: nowrap;
+  grid-area: services;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.footer-home .services h3,
+.footer-home .about-ecovibe h3 {
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 3px solid var(--white);
+}
+
+.footer-home .about-ecovibe {
+  width: min-content;
+  white-space: nowrap;
+  grid-area: about;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.footer-home .social-media {
+  grid-area: social;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.footer-home .social-media .social-media--container {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  list-style: none;
+}
+
+.footer-home .social-media .social-media--container svg {
+  width: 24px;
+  height: 24px;
+  /* transition: color .15s linear; */
+}
+/* 
+.footer-home .social-media .social-media--container li:hover svg {
+  color: #101010;
+} */
+
+@media (min-width: 700px) {
+  .footer-home {
+    padding-inline: 24px;
+    padding-top: 24px;
+    grid-template-areas: 
+      "logo services"
+      "logo about"
+      "social social"
+  }
+  .footer-home .social-media {
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 1000px) {
+  .footer-home {
+    padding-inline: 48px;
+    padding-top: 48px;
+    grid-template-areas: 
+      "logo services about"
+      "social social social"
+  }
+}

@@ -1,0 +1,45 @@
+@import url(./theme.css);
+@import url(./components/footer.css);
+
+.container-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.slot-color {
+  width: 28px;
+  height: 28px;
+}
+
+.bg-01 {
+  background-color: #CCEAEF;
+}
+.bg-02 {
+  background-color: #FFE6C8;
+}
+.bg-03 {
+  background-color: #DFFFC2;
+}
+
+@media (min-width: 700px) {
+  .container-chart {
+    flex-direction: row;
+    gap: 48px;
+  }
+}
+
+.close-confetti {
+  opacity: 1;
+  animation: disolve 3s linear both;
+}
+
+@keyframes disolve {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    z-index: -1;
+  }
+}
