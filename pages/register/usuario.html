@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crear Cuenta</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../styles/theme.css">
+  <link rel="stylesheet" href="../../styles/index.css">
+  <link href="https://cdn.jsdelivr.net/npm/confetti-js@0.0.18/site/site.min.css" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    .container-register {
+      width: 90%;
+      max-width: 500px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      padding: 20px;
+      position: relative;
+      padding-inline: 0px;
+      margin-inline: auto;
+    }
+  
+    .back-button {
+      position: absolute;
+      top: 80px;
+      left: 80px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+  
+    .input-group-content {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 25px;
+      padding: 10px 15px;
+      background-color: #f9f9f9;
+    }
+  
+    .input-group-content .icon {
+      margin-right: 10px;
+      font-size: 18px;
+      color: #888;
+    }
+  
+    .input-group-content input {
+      border: none;
+      outline: none;
+      flex: 1;
+      background-color: transparent;
+      font-size: 14px;
+    }
+  
+    .row {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+  
+    .column {
+      flex: 1;
+    }
+  
+    .submit-button {
+      background-color: #000;
+      color: #fff;
+      border: none;
+      padding: 10px;
+      border-radius: 11px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: auto;
+      margin-top: 60px;
+      display: flex;
+      justify-content: center;
+      padding-inline: 22px;
+    }
+  
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .row {
+        flex-direction: column;
+        gap: 0;
+      }
+  
+      .container-register {
+        padding-top: 50px;
+  
+      }
+  
+      .back-button {
+        top: 70px;
+        left: 16px;
+        z-index: 2;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="w-100 d-flex justify-content-center position-sticky top-0" style="background: var(--white); z-index: 1000;">
+    <nav class="container-header navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand fs-2 fw-bold text-green" href="/">EcoVibe</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNavDropdown">
+          <ul class="navbar-nav gap-0 gap-lg-4">
+            <li class="nav-item d-flex align-items-center gap-2">
+              <div class="dropdown">
+                <span class="dropdown-toggle nav-link" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Servicios
+                </span>
+                <ul class="dropdown-menu mt-2 shadow-lg dropdown-menu--header__services">
+                  <li id="calculatorService"><a class="dropdown-item" href="#" style="white-space: pre-wrap;">Calculadora de huella de carbono</a></li>
+                  <li id="activeService"><a class="dropdown-item" href="/pages/flujo/registro-de-actividades-diarias-transporte.html" style="white-space: pre-wrap;">Registro de actividades diarias</a></li>
+                  <li><a class="dropdown-item" href="/pages/tienda.html" style="white-space: pre-wrap;">Tienda</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#">Rankings</a>
+            </li>
+            <li class="nav-item position-relative d-flex align-items-center form-control--header__search">
+              <div class="position-absolute">
+                <i class="ms-2 fa-solid fa-magnifying-glass"></i>
+              </div>
+              <input class="form-control form-control-sm" style="padding-left: 32px;" type="search" placeholder="Buscar" aria-label="Search">
+            </li>
+          </ul>
+          <div class="d-flex align-items-center gap-2">
+            <button type="button" class="d-block btn btn-success" id="isLoggedIn">Iniciar sesión</button>
+            <div class="d-flex flex-column flex-lg-row align-items-center gap-4" id="isNotLoggedIn">
+              <a class="d-flex align-items-center gap-2 nav-link w-100" href="#">
+                <i class="fas fa-bell"></i>
+                <span class="fs-6 d-lg-none">Notificaciones</span>
+              </a>
+              <a class="d-flex align-items-center gap-2 nav-link w-100" href="/pages/tienda.html">
+                <i class="fas fa-dollar-sign"></i>
+                <span class="fs-6 d-lg-none">Tienda</span>
+              </a>
+              <div class="nav-item dropdown d-none d-lg-block">
+                <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="fas fa-user"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end shadow-lg mt-3">
+                  <li><a class="dropdown-item" href="#">Perfil</a></li>
+                  <li><a class="dropdown-item" href="#" id="closeSesionDesktop">Cerrar sesión</a></li>
+                </ul>
+              </div>
+              <div class="d-flex flex-column gap-3 d-lg-none w-100">
+                <a class="nav-link" href="#">
+                  <i class="fas fa-user"></i>
+                  <span class="fs-6">Perfil</span>
+                </a>
+                <button type="button" class="btn btn-sm btn-danger mb-2" id="closeSesionMobile">Cerrar sesión</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <script src="../../js/header.js"></script>
+  </header>
+
+  <button class="back-button" id="backButton">
+    <svg width="33" height="23" viewBox="0 0 33 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M2.53405 8.92507L1.26703 10.0307L0 8.92507L1.26703 7.81941L2.53405 8.92507ZM33 21.4361C33 21.8509 32.8112 22.2487 32.4751 22.542C32.139 22.8352 31.6832 23 31.2079 23C30.7326 23 30.2768 22.8352 29.9407 22.542C29.6046 22.2487 29.4158 21.8509 29.4158 21.4361H33ZM10.2276 17.8501L1.26703 10.0307L3.80107 7.81941L12.7616 15.6388L10.2276 17.8501ZM1.26703 7.81941L10.2276 0L12.7616 2.21133L3.80107 10.0307L1.26703 7.81941ZM2.53405 7.36119H20.4552V10.489H2.53405V7.36119ZM33 18.3084V21.4361H29.4158V18.3084H33ZM20.4552 7.36119C23.7823 7.36119 26.9731 8.51455 29.3257 10.5675C31.6783 12.6205 33 15.405 33 18.3084H29.4158C29.4158 16.2345 28.4717 14.2456 26.7913 12.7792C25.1108 11.3128 22.8317 10.489 20.4552 10.489V7.36119Z"
+        fill="#35966E" />
+    </svg>
+  </button>
+  <main class="container-register">
+    <div class="form-container">
+      <h1 class="font-title-lg">Crear cuenta</h1>
+      <h2 class="font-text-md-bold">Personal</h2>
+
+      <form id="registerForm" class="register-form">
+        <label for="firstName" class="font-text-sm">Nombres:</label>
+        <div class="input-group-content">
+          <span class="icon">👤</span>
+          <input type="text" id="firstName" name="firstName" placeholder="Ingrese su nombre" class="font-text-sm"
+            required>
+        </div>
+
+        <label for="lastName" class="font-text-sm">Apellidos:</label>
+        <div class="input-group-content">
+          <span class="icon">📄</span>
+          <input type="text" id="lastName" name="lastName" placeholder="Ingrese sus apellidos" required>
+        </div>
+
+        <label for="email" class="font-text-sm">Email:</label>
+        <div class="input-group-content">
+          <span class="icon">📧</span>
+          <input type="email" id="email" name="email" placeholder="Ingrese su correo electrónico" required>
+        </div>
+
+        <div class="row">
+          <div class="column">
+            <label for="age" class="font-text-sm">Edad:</label>
+            <div class="input-group-content">
+              <span class="icon">➕</span>
+              <input type="number" id="age" name="age" placeholder="Edad" required>
+            </div>
+          </div>
+          <div class="column">
+            <label for="district" class="font-text-sm">Distrito:</label>
+            <div class="input-group-content">
+              <span class="icon">🏠</span>
+              <input type="text" id="district" name="district" placeholder="Distrito" required>
+            </div>
+          </div>
+        </div>
+
+        <label for="password" class="font-text-sm">Contraseña:</label>
+        <div class="input-group-content">
+          <span class="icon">🔒</span>
+          <input type="password" id="password" name="password" placeholder="Ingrese su contraseña" required>
+        </div>
+
+        <label for="confirmPassword">Confirmar contraseña:</label>
+        <div class="input-group-content">
+          <span class="icon">🔒</span>
+          <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirme su contraseña"
+            required>
+        </div>
+
+        <button type="submit" class="submit-button">Crear cuenta</button>
+      </form>
+    </div>
+  </main>
+  <script type="module" src="./scripts/script.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js" integrity="sha512-6sSYJqDreZRZGkJ3b+YfdhB3MzmuP9R7X1QZ6g5aIXhRvR1Y/N/P47jmnkENm7YL3oqsmI6AK+V6AD99uWDnIw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</body>
+
+</html>
+
+
+
+<script>
+  document.getElementById("registerForm").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const firstName = document.getElementById("firstName").value.trim();
+    const lastName = document.getElementById("lastName").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const age = document.getElementById("age").value.trim();
+    const district = document.getElementById("district").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const confirmPassword = document.getElementById("confirmPassword").value.trim();
+
+    if (!firstName || !lastName || !email || !age || !district || !password || !confirmPassword) {
+      alert("Por favor, complete todos los campos.");
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      alert("Las contraseñas no coinciden. Por favor, vuelva a intentarlo.");
+      return;
+    }
+
+    if (age <= 0 || isNaN(age)) {
+      alert("Por favor, ingrese una edad válida.");
+      return;
+    }
+
+    console.log("Datos del formulario:");
+    console.log("Nombres:", firstName);
+    console.log("Apellidos:", lastName);
+    console.log("Email:", email);
+    console.log("Edad:", age);
+    console.log("Distrito:", district);
+    console.log("Contraseña:", password);
+
+    localStorage.setItem("type", 'personal');
+    localStorage.setItem("isLoggedIn", "true");
+
+    alert("Registro exitoso. ¡Redirigiendo!");
+
+    window.location.href = "/index.html";
+  });
+
+  document.getElementById('backButton').addEventListener('click', function () {
+    window.location.href = '/loginRegister.html';
+  });
+</script>

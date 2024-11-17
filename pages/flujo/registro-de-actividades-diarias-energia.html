@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de actividades diarias</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./../../styles/theme.css">
+  <link rel="stylesheet" href="./../../styles/index.css">
+
+  <link rel="stylesheet" href="../../styles/pages/flujo/registro-de-actividades-diarias-energia.css">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+  
+  <header class="w-100 d-flex justify-content-center position-sticky top-0" style="background: var(--white); z-index: 1000;">
+    <nav class="container-header navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand fs-2 fw-bold text-green" href="/">EcoVibe</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNavDropdown">
+          <ul class="navbar-nav gap-0 gap-lg-4">
+            <li class="nav-item d-flex align-items-center gap-2">
+              <div class="dropdown">
+                <span class="dropdown-toggle nav-link" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Servicios
+                </span>
+                <ul class="dropdown-menu mt-2 shadow-lg dropdown-menu--header__services">
+                  <li id="calculatorService"><a class="dropdown-item" href="#" style="white-space: pre-wrap;">Calculadora de huella de carbono</a></li>
+                  <li id="activeService"><a class="dropdown-item" href="/pages/flujo/registro-de-actividades-diarias-transporte.html" style="white-space: pre-wrap;">Registro de actividades diarias</a></li>
+                  <li><a class="dropdown-item" href="/pages/tienda.html" style="white-space: pre-wrap;">Tienda</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#">Rankings</a>
+            </li>
+            <li class="nav-item position-relative d-flex align-items-center form-control--header__search">
+              <div class="position-absolute">
+                <i class="ms-2 fa-solid fa-magnifying-glass"></i>
+              </div>
+              <input class="form-control form-control-sm" style="padding-left: 32px;" type="search" placeholder="Buscar" aria-label="Search">
+            </li>
+          </ul>
+          <div class="d-flex align-items-center gap-2">
+            <button type="button" class="d-block btn btn-success" id="isLoggedIn">Iniciar sesión</button>
+            <div class="d-flex flex-column flex-lg-row align-items-center gap-4" id="isNotLoggedIn">
+              <a class="d-flex align-items-center gap-2 nav-link w-100" href="#">
+                <i class="fas fa-bell"></i>
+                <span class="fs-6 d-lg-none">Notificaciones</span>
+              </a>
+              <a class="d-flex align-items-center gap-2 nav-link w-100" href="/pages/tienda.html">
+                <i class="fas fa-dollar-sign"></i>
+                <span class="fs-6 d-lg-none">Tienda</span>
+              </a>
+              <div class="nav-item dropdown d-none d-lg-block">
+                <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="fas fa-user"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end shadow-lg mt-3">
+                  <li><a class="dropdown-item" href="#">Perfil</a></li>
+                  <li><a class="dropdown-item" href="#" id="closeSesionDesktop">Cerrar sesión</a></li>
+                </ul>
+              </div>
+              <div class="d-flex flex-column gap-3 d-lg-none w-100">
+                <a class="nav-link" href="#">
+                  <i class="fas fa-user"></i>
+                  <span class="fs-6">Perfil</span>
+                </a>
+                <button type="button" class="btn btn-sm btn-danger mb-2" id="closeSesionMobile">Cerrar sesión</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <script src="../../js/header.js"></script>
+  </header>
+
+  <main class="container">
+    <h1 class="text-center color-green fs-2 fw-bold my-4">Registro de actividades diarias</h1>
+
+    <form class="form-container">
+      <!-- Consumo eléctrico -->
+      <h2 class="fs-3 text-center">2. Energía</h2>
+
+      <div class="form-section">
+        <label for="electricity" class="fs-6">1. ¿Cuánto consumo eléctrico has tenido hoy (en kWh)?</label>
+        <div class="input-group d-flex align-items-center gap-3 mt-3">
+          <i class="fa-solid fa-bolt fs-1"></i>
+          <input type="number" id="electricity" name="electricity" class="form-control" placeholder="Introduce el consumo en kWh">
+        </div>
+      </div>
+  
+      <!-- Uso de calefacción o aire acondicionado -->
+      <div class="form-section">
+        <label class="fs-6">2. ¿Utilizaste calefacción o aire acondicionado hoy?</label>
+        <div class="checkbox-group">
+          <label class="fs-6 d-flex align-items-center gap-2">
+            <input class="form-check-input" type="radio" value="yes" name="heating">
+            Sí
+          </label>
+          <label class="fs-6 d-flex align-items-center gap-2">
+            <input class="form-check-input" type="radio" value="no" name="heating">
+            No
+          </label>
+        </div>
+      </div>
+  
+      <!-- Tiempo de uso de calefacción/aire acondicionado -->
+      <div class="form-section">
+        <label for="heatingTime" class="fs-6">Si usaste calefacción/aire acondicionado, ¿cuánto tiempo lo tuviste encendido (en horas)?</label>
+        <div class="input-group d-flex align-items-center gap-3 mt-3">
+          <i class="fa-solid fa-clock fs-1"></i>
+          <input type="number" id="heatingTime" name="heatingTime" class="form-control" placeholder="Introduce el tiempo en horas">
+        </div>
+      </div>
+  
+      <!-- Tiempo de uso de dispositivos electrónicos -->
+      <div class="form-section">
+        <label class="fs-6">3. Tiempo de uso de dispositivos electrónicos hoy (computadora, TV, consola, etc.):</label>
+        <div class="checkbox-group">
+          <label class="fs-6 d-flex align-items-center gap-2">
+            <input class="form-check-input" type="radio" value="less2" name="electronics">
+            Menos de 2 horas
+          </label>
+          <label class="fs-6 d-flex align-items-center gap-2">
+            <input class="form-check-input" type="radio" value="2to4" name="electronics">
+            2-4 horas
+            </label>
+          <label class="fs-6 d-flex align-items-center gap-2">
+            <input class="form-check-input" type="radio" value="more4" name="electronics">
+            Más de 4 horas
+          </label>
+        </div>
+      </div>
+  
+      <!-- Botón de envío -->
+       <div class="content_button">
+         <div class="submit-button">
+           <button id="backButton" type="button">
+            <i class="fa-solid fa-arrow-left"></i>
+           </button>
+         </div>
+         <div class="submit-button">
+           <button type="submit">
+            <i class="fa-solid fa-arrow-right"></i>
+           </button>
+         </div>
+       </div>
+    </form>
+  </main>
+
+  <script>
+    const backButton = document.querySelector('#backButton');
+
+    backButton.addEventListener('click', () => {
+      window.location.href = "/pages/flujo/registro-de-actividades-diarias-transporte.html";
+    });
+
+    document.querySelector('.form-container').addEventListener('submit', function (event) {
+      event.preventDefault(); // Evitar el envío del formulario por defecto
+  
+      // Obtener valores de los campos
+      const electricity = document.getElementById('electricity').value;
+      const heating = document.querySelector('input[name="heating"]:checked');
+      const heatingTime = document.getElementById('heatingTime').value;
+      const electronics = document.querySelector('input[name="electronics"]:checked');
+  
+      // Validación de consumo eléctrico
+      if (electricity === '' || electricity <= 0) {
+        // alert('Por favor, introduce un valor válido para el consumo eléctrico en kWh.');
+        Swal.fire({
+          position: "top-end",
+          icon: "error",
+          title: "Por favor, introduce un valor válido para el consumo eléctrico en kWh.",
+          showConfirmButton: false,
+          timer: 1500
+        });
+        return;
+      }
+  
+      // Validación de uso de calefacción o aire acondicionado
+      if (!heating) {
+        // alert('Por favor, selecciona si usaste calefacción o aire acondicionado hoy.');
+        Swal.fire({
+          position: "top-end",
+          icon: "error",
+          title: "Por favor, selecciona si usaste calefacción o aire acondicionado hoy.",
+          showConfirmButton: false,
+          timer: 1500
+        });
+        return;
+      }
+  
+      // Validación de tiempo de uso de calefacción/aire acondicionado
+      if (heating.value === 'yes' && (heatingTime === '' || heatingTime <= 0)) {
+        // alert('Si usaste calefacción o aire acondicionado, introduce el tiempo en horas.');
+        Swal.fire({
+          position: "top-end",
+          icon: "error",
+          title: "Si usaste calefacción o aire acondicionado, introduce el tiempo en horas.",
+          showConfirmButton: false,
+          timer: 1500
+        });
+        return;
+      }
+  
+      // Validación del tiempo de uso de dispositivos electrónicos
+      if (!electronics) {
+        // alert('Por favor, selecciona el tiempo de uso de dispositivos electrónicos.');
+        Swal.fire({
+          position: "top-end",
+          icon: "error",
+          title: "Por favor, selecciona el tiempo de uso de dispositivos electrónicos.",
+          showConfirmButton: false,
+          timer: 1500
+        });
+        return;
+      }
+  
+      // Si todas las validaciones pasan, procesar los datos
+      const formData = {
+        electricity: parseFloat(electricity),
+        heating: heating.value,
+        heatingTime: heating.value === 'yes' ? parseFloat(heatingTime) : 0,
+        electronics: electronics.value,
+      };
+  
+      // console.log('Datos enviados:', formData);
+  
+      // Mensaje de confirmación
+      // alert('Formulario enviado correctamente.');
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Por favor, selecciona al menos un medio de transporte.",
+        showConfirmButton: false,
+        timer: 1500
+      }).finally(() => {
+        window.location.href = '/pages/flujo/registro-de-actividades-diarias-consumo.html';
+      });
+      // Redirigir a otra página
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js" integrity="sha512-6sSYJqDreZRZGkJ3b+YfdhB3MzmuP9R7X1QZ6g5aIXhRvR1Y/N/P47jmnkENm7YL3oqsmI6AK+V6AD99uWDnIw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</body>
+
+</html>
+
+
+
